@@ -266,16 +266,7 @@ open class Floaty: UIView {
     /**
      An accessibility button for the main Fab Button
      */
-    var accessibilityView : UIView {
-        get {
-            return _accessibilityView
-        }
-    }
-
-    /**
-     An accessibility button for the main Fab Button
-     */
-    fileprivate var _accessibilityView : UIView = UIView()
+    fileprivate var accessibilityView : UIView = UIView()
     
     // MARK: - Initialize
     
@@ -1301,48 +1292,48 @@ extension UIView {
 extension Floaty {
     open override func layoutSubviews() {
         super.layoutSubviews();
-        _accessibilityView.frame = CGRect(x: 0, y: 0, width: size, height: size)
+        accessibilityView.frame = CGRect(x: 0, y: 0, width: size, height: size)
     }
     
     func setAccessibilityView() {
         self.addSubview(accessibilityView)
-        _accessibilityView.isAccessibilityElement = true
-        _accessibilityView.accessibilityTraits.insert(.button)
+        accessibilityView.isAccessibilityElement = true
+        accessibilityView.accessibilityTraits.insert(.button)
     }
     
     open override var accessibilityLabel : String? {
         get {
-            return _accessibilityView.accessibilityLabel
+            return accessibilityView.accessibilityLabel
         }
         set(newLabel) {
-            _accessibilityView.accessibilityLabel = newLabel
+            accessibilityView.accessibilityLabel = newLabel
         }
     }
     
     open override var accessibilityHint : String? {
         get {
-            return _accessibilityView.accessibilityHint
+            return accessibilityView.accessibilityHint
         }
         set(newHint) {
-            _accessibilityView.accessibilityHint = newHint
+            accessibilityView.accessibilityHint = newHint
         }
     }
     
     open override var accessibilityValue : String? {
         get {
-            return _accessibilityView.accessibilityValue
+            return accessibilityView.accessibilityValue
         }
         set(newHint) {
-            _accessibilityView.accessibilityValue = newHint
+            accessibilityView.accessibilityValue = newHint
         }
     }
     
     open override var accessibilityElements: [Any]? {
         get {
             if (closed) {
-                return [_accessibilityView]
+                return [accessibilityView]
             } else {
-                return [_accessibilityView] + items
+                return [accessibilityView] + items
             }
         }
         set {
